@@ -1,6 +1,7 @@
 <h1>User info</h1>
 
 <%= form_with model: @user, local: true do |f| %>
+  <%= render "layouts/error_messages3", model: f.object %>
   <div class="field">
     <%= f.label :name, "Name" %>
     <%= f.text_field :name %>

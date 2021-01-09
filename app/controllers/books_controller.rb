@@ -1,13 +1,15 @@
 class BooksController < ApplicationController
+  before_action :baria_user, {only: [:edit, :update, :destroy]}
 
   def new
     @book = Book.new
   end
 
   def create
+    @user = current_user
     @books = Book.all
     @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book.user_id = @user.id
     if @book.save
       flash[:notice] = "Book was succsessfully created."
       redirect_to book_path(@book.id)
@@ -45,8 +47,14 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    flash[:notice] = "Book was successfully destroyed."
+    flash[:notice] ="Book was successfully destroyed."
     redirect_to books_path
+  end
+
+  def baria_user
+    unless Book.find(params[:id]).user.id.to_i == current_user.id
+      redirect_to books_path
+    end
   end
 
   private

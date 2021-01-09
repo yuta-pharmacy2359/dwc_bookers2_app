@@ -2,6 +2,7 @@
 
 
   <%= form_with model: @book, local: true do |f| %>
+    <%= render "layouts/error_messages2", model: f.object %>
 
     <div class="field">
       <%= f.label :title, "Title" %>
