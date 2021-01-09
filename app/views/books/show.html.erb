@@ -1,8 +1,4 @@
-<h1>User info</h1>
-  <%= attachment_image_tag @user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "100x100" %>
-  <p>name:<%= @user.name %></p>
-  <p>introduction:<%= @user.introduction %></p>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+<%= render "layouts/list_user_info", user: @user %>
 
 <h1>New Book</h1>
   <%= form_with model: @book_new, local: true do |f| %>

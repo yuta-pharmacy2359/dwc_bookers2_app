@@ -1,10 +1,6 @@
 class BooksController < ApplicationController
   before_action :baria_user, {only: [:edit, :update, :destroy]}
 
-  def new
-    @book = Book.new
-  end
-
   def create
     @user = current_user
     @books = Book.all
