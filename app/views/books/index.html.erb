@@ -1,7 +1,8 @@
 <h1>User info</h1>
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
+  <%= attachment_image_tag @user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "100x100" %>
+  <p>name:<%= @user.name %></p>
+  <p>introduction:<%= @user.introduction %></p>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
 
 <h1>New Book</h1>
   <%= form_with model: @book, local: true do |f| %>
@@ -15,6 +16,9 @@
 <h1>Books</h1>
 <% @books.each do |book| %>
   <div>
+    <%= link_to user_path(book.user.id) do %>
+      <%= attachment_image_tag book.user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %>
+    <% end %>
     <p>Title:
       <%= link_to book_path(book.id) do %>
         <%= book.title %>
