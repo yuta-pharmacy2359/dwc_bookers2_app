@@ -29,6 +29,10 @@
   color: green;
 }
 
+#alert {
+  color: red;
+}
+
 #error_explanation {
   color: red;
 }
@@ -41,6 +45,19 @@
   color: gray;
 }
 
-td:nth-child(6) {
+.books_index_book_title {
+  width: 120px;
+}
+
+.favorite_button {
   width: 80px;
 }
+
+.comments_count {
+  width: 170px;
+}
+
+.new_comment_container {
+  width: 100%;
+}
+

@@ -50,13 +50,13 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  private
+
   def baria_user
     unless Book.find(params[:id]).user.id.to_i == current_user.id
       redirect_to books_path
     end
   end
-
-  private
 
   def book_params
     params.require(:book).permit(:title, :body)

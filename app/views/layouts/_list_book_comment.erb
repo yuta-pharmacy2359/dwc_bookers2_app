@@ -17,7 +17,7 @@
       <% if book_comment.user == current_user %>
       </td>
       <td>
-        <%= link_to "Destroy", book_book_comment_path(book_comment.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか?" %>
+        <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか?" %>
       </td>
       <% end %>
     </tr>
@@ -26,9 +26,15 @@
   </table>
 </div>
 
+<p id="alert">
+  <% if flash[:alert] %>
+    <%= flash[:alert] %>
+  <% end %>
+</p>
+
 <div class="new_comment">
   <%= form_with(model: [book, book_comment], local: true) do |f| %>
-    <%= f.text_area :comment, rows: '5' %>
+    <%= f.text_area :comment, rows: '5', class: "new_comment_container" %>
     <%= f.submit "送信" %>
   <% end %>
 </div>

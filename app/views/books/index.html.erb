@@ -22,7 +22,7 @@
       <% end %>
 
     </div>
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-9">
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
         <thead>
@@ -30,7 +30,7 @@
             <th></th>
             <th>Title</th>
             <th>Opinion</th>
-            <th colspan="3"></th>
+            <th colspan="4"></th>
           </tr>
         </thead>
         <tbody>
@@ -41,7 +41,7 @@
                   <%= attachment_image_tag book.user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %>
                 <% end %>
               </td>
-              <td>
+              <td class="books_index_book_title">
                 <%= link_to book_path(book.id) do %>
                   <%= book.title %>
                 <% end %>
@@ -49,13 +49,11 @@
               <td>
                 <%= book.body %>
               </td>
-              <td></td>
-              <td></td>
-              <td>
+              <td class="favorite_button">
                 <%= render 'layouts/list_favorite', book: book %>
                 <%= book.favorited_users.count %>
               </td>
-              <td>
+              <td class="comments_count">
                 <%= "#{book.book_comments.count}件のコメント" %>
               </td>
             </tr>

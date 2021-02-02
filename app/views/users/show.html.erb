@@ -26,13 +26,16 @@
                   <%= attachment_image_tag book.user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %>
                 <% end %>
               </td>
-              <td>
+              <td class="books_index_book_title">
                 <%= link_to book_path(book.id) do %>
                   <%= book.title %>
                 <% end %>
               </td>
               <td>
                 <%= book.body %>
+              </td>
+              <td class="comments_count">
+                <%= "#{book.book_comments.count}件のコメント" %>
               </td>
             </tr>
           <% end %>

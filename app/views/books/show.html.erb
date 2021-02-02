@@ -34,7 +34,7 @@
                 <%= @book.user.name %>
               <% end %>
             </td>
-            <td>
+            <td class="books_index_book_title">
               <%= link_to book_path(@book.id) do %>
                 <%= @book.title %>
               <% end %>
@@ -50,14 +50,18 @@
                 <%= link_to "Destroy", book_path(@book.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか?" %>
               </td>
             <% end %>
-            <td>
+            <td class="favorite_button">
               <%= render 'layouts/list_favorite', book: @book %>
               <%= @book.favorited_users.count %>
             </td>
           </tr>
         </tbody>
       </table>
-      <%= render 'layouts/list_book_comment', book: @book, book_comment: @book_comment %>
+      <h2>Comments</h2>
+      <%= "#{@book.book_comments.count}件のコメント" %>
+      <div class="table"></div>
+        <%= render 'layouts/list_book_comment',class: "col-md-9", book: @book, book_comment: @book_comment %>
+      </div>
     </div>
   </div>
 </div>
