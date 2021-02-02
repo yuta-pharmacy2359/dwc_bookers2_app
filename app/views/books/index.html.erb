@@ -55,6 +55,9 @@
                 <%= render 'layouts/list_favorite', book: book %>
                 <%= book.favorited_users.count %>
               </td>
+              <td>
+                <%= "#{book.book_comments.count}件のコメント" %>
+              </td>
             </tr>
           <% end %>
         </tbody>
