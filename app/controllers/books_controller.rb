@@ -18,12 +18,14 @@ class BooksController < ApplicationController
     @user = current_user
     @book = Book.new
     @books = Book.all
+    @favorites_count = Favorite.where(book_id: @book.id).count
   end
 
   def show
     @book_new = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
+    @favorite = Favorite.new
   end
 
   def edit

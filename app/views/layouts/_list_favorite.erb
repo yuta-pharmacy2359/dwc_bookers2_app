@@ -1,0 +1,9 @@
+<% if current_user.already_favorited?(book) %>
+  <%= link_to nonfavorite_path(book), method: :delete do %>
+    <span class="fa fa-heart like-btn-unlike"></span>
+  <% end %>
+<% else %>
+  <%= link_to favorite_path(book), method: :post do %>
+    <span class="fa fa-heart like-btn"></span>
+  <% end %>
+<% end %>

@@ -49,6 +49,12 @@
               <td>
                 <%= book.body %>
               </td>
+              <td></td>
+              <td></td>
+              <td>
+                <%= render 'layouts/list_favorite', book: book %>
+                <%= book.favorited_users.count %>
+              </td>
             </tr>
           <% end %>
         </tbody>

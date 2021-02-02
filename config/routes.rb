@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about", as: "about"
   resources :books
   resources :users, only: [:index, :show, :edit, :update]
+
+  post "favorites/:book_id/create" => "favorites#create", as: "favorite"
+  delete "favorites/:book_id/destroy" => "favorites#destroy", as: "nonfavorite"
 end
