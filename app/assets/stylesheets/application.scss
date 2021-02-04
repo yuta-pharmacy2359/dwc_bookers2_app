@@ -17,6 +17,10 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+a:hover {
+  text-decoration: none;
+}
+
 .field {
   margin-bottom: 10px;
 }
@@ -65,3 +69,10 @@
   width: 100%;
 }
 
+.comment_notice {
+  color: green;
+}
+
+.comment_alert {
+  color: red;
+}

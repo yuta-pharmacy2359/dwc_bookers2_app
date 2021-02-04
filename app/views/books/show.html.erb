@@ -57,8 +57,7 @@
         </tbody>
       </table>
       <h2>Comments</h2>
-      <%= "#{@book.book_comments.count}件のコメント" %>
-      <div class="table"></div>
+      <div id="comments_area">
         <%= render 'layouts/list_book_comment',class: "col-md-9", book: @book, book_comment: @book_comment %>
       </div>
     </div>

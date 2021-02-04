@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   def create
     @user = current_user
-    @books = Book.all
+    @books = Book.page(params[:page]).reverse_order
     @book = Book.new(book_params)
     @book.user_id = @user.id
     if @book.save
@@ -25,7 +25,6 @@ class BooksController < ApplicationController
     @book_new = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
-    @book_comment = BookComment.new
     @favorite = Favorite.new
   end
 
