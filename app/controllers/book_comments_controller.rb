@@ -8,17 +8,15 @@ class BookCommentsController < ApplicationController
     @book_comment.book_id = @book.id
     if @book_comment.save
       flash[:notice] = "Comment was successfully created."
-      redirect_back(fallback_location: root_path)
     else
       flash[:alert] = "Comment can't be blank."
-      redirect_back(fallback_location: root_path)
     end
   end
 
   def destroy
-    BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
+    @book_comment = BookComment.find_by(id: params[:id], book_id: params[:book_id])
+    @book_comment.destroy
     flash[:notice] = "Comment was successfully destroyed."
-    redirect_back(fallback_location: root_path)
   end
 
   private
