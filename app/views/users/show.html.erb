@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-9">
       <h2>Books</h2>
-        <%= render 'layouts/list_book_index', books: @books %>
+        <%= render 'layouts/list_book_index', books: @books, user: current_user %>
     </div>
   </div>
 </div>

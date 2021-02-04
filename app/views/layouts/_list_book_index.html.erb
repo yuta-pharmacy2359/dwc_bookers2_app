@@ -24,9 +24,8 @@
         <td>
           <%= book.body %>
         </td>
-        <td class="favorite_button">
+        <td id="favorite_button_of_<%= book.id %>" class="favorite">
           <%= render 'layouts/list_favorite', book: book %>
-          <%= book.favorited_users.count %>
         </td>
         <td class="comments_count">
           <%= "#{book.book_comments.count}件のコメント" %>

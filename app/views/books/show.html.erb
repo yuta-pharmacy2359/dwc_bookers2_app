@@ -50,9 +50,8 @@
                 <%= link_to "Destroy", book_path(@book.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか?" %>
               </td>
             <% end %>
-            <td class="favorite_button">
+            <td id="favorite_button_of_<%= @book.id %>" class="favorite">
               <%= render 'layouts/list_favorite', book: @book %>
-              <%= @book.favorited_users.count %>
             </td>
           </tr>
         </tbody>
