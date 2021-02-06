@@ -38,6 +38,7 @@
       <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" do %>
       <% end %>
     <% else %>
+      <%= link_to "チャットする", chat_path(@user.id) %>
       <%= render 'layouts/list_follow_form', user: user %>
     <% end %>
   </div>
