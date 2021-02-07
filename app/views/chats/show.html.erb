@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-md-9">
       <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
 
       <table class="message table">
@@ -15,7 +15,7 @@
             <tbody>
               <tr>
                 <td>
-                  <p style="text-align: left;"><%= chat.message %></p>
+                  <p style="text-align: left;" class="chat_left"><%= chat.message %></p>
                 </td>
                 <td></td>
               </tr>
@@ -24,8 +24,8 @@
             <tbody>
               <tr>
                 <td></td>
-                <td>
-                  <p style="text-align: right;"><%= chat.message %></p>
+                <td class="chat_right_td">
+                  <p style="text-align: right;" class="chat_right"><%= chat.message %></p>
                 </td>
               </tr>
             </tbody>
