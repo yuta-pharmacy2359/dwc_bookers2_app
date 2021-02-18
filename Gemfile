@@ -71,3 +71,4 @@ gem "kaminari", "~> 1.2.1"
 gem "jp_prefecture"
 
 gem "whenever", require: false
+gem "rails-i18n", "~> 5.1"
