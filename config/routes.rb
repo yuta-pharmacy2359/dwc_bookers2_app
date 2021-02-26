@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'chats/show'
   get 'searches/search' => "searches#search", as: "search"
+  get 'books/ranking' => "books#ranking", as: "ranking"
   devise_for :users#, controllers: {registrations: 'users/registrations'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#top"

@@ -8,4 +8,9 @@ class Book < ApplicationRecord
 
   validates :title, {presence: true}
   validates :body, {presence: true, length: {maximum: 200}}
+
+  def self.create_all_ranks
+    Book.find(Favorite.group(:book_id).order('count(book_id) desc').limit(10).pluck(:book_id))
+  end
+
 end
