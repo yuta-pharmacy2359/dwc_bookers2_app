@@ -33,6 +33,9 @@
                   <%= link_to " Books", books_path, class: "fas fa-book-open nav-link text-light" %>
                 </li>
                 <li>
+                  <%= link_to " Ranking", ranking_path, class: "fas fa-crown nav-link text-light" %>
+                </li>
+                <li>
                   <%= link_to " logout", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
                 </li>
               <% else %>

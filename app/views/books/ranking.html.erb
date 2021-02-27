@@ -1,0 +1,42 @@
+<div class="container px-5 px-sm-0">
+  <h2>Favorite Ranking</h2>
+  <table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>User</th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_ranks.each.with_index(1) do |book, i| %>
+      <tr>
+        <td>
+          <%= i.to_s %>
+        </td>
+        <td>
+          <%= link_to user_path(book.user.id) do %>
+            <%= attachment_image_tag book.user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %>
+          <% end %>
+        </td>
+        <td class="books_index_book_title">
+          <%= link_to book_path(book.id) do %>
+            <%= book.title %>
+          <% end %>
+        </td>
+        <td>
+          <%= book.body %>
+        </td>
+        <td id="favorite_button_of_<%= book.id %>" class="favorite">
+          <%= render 'layouts/list_favorite', book: book %>
+        </td>
+        <td class="comments_count">
+          <%= "#{book.book_comments.count}件のコメント" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

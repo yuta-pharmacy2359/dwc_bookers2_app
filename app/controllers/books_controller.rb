@@ -48,6 +48,10 @@ class BooksController < ApplicationController
     flash[:notice] ="Book was successfully destroyed."
     redirect_to books_path
   end
+  
+  def ranking
+    @all_ranks = Book.create_all_ranks
+  end
 
   private
 
