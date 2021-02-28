@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :baria_user, {only: [:edit, :update, :destroy]}
+  before_action :baria_user, { only: [:edit, :update, :destroy] }
 
   def create
     @user = current_user
@@ -35,7 +35,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      flash[:notice] ="Book was successfully updated."
+      flash[:notice] = "Book was successfully updated."
       redirect_to book_path(@book.id)
     else
       render :edit
@@ -45,10 +45,10 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    flash[:notice] ="Book was successfully destroyed."
+    flash[:notice] = "Book was successfully destroyed."
     redirect_to books_path
   end
-  
+
   def ranking
     @all_ranks = Book.create_all_ranks
   end
@@ -64,5 +64,4 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
-
 end

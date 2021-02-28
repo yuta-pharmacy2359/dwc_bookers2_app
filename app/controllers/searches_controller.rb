@@ -1,5 +1,4 @@
 class SearchesController < ApplicationController
-
   def search
     @model = params["search"]["model"]
     @value = params["search"]["value"]
@@ -44,7 +43,7 @@ class SearchesController < ApplicationController
   def search_for(how, model, value)
     case how
     when 'match'
-      match(model,value)
+      match(model, value)
     when 'forward'
       forward(model, value)
     when 'backward'
@@ -53,5 +52,4 @@ class SearchesController < ApplicationController
       partical(model, value)
     end
   end
-
 end

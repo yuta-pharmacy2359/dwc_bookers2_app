@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   has_many :books, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorited_books, through: :favorites, source: :book
@@ -18,11 +17,11 @@ class User < ApplicationRecord
   has_many :rooms, through: :user_rooms
   attachment :profile_image
 
-  validates :name, {uniqueness: true, length: {minimum: 2, maximum: 50}}
-  validates :introduction, {length: {maximum: 50}}
+  validates :name, { uniqueness: true, length: { minimum: 2, maximum: 50 } }
+  validates :introduction, { length: { maximum: 50 } }
 
   def already_favorited?(book)
-    self.favorites.exists?(book_id: book.id)
+    favorites.exists?(book_id: book.id)
   end
 
   def follow(other_user)
@@ -47,5 +46,4 @@ class User < ApplicationRecord
   def prefecture_name=(prefecture_name)
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
-
 end

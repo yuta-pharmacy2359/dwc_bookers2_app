@@ -1,5 +1,5 @@
 class BookCommentsController < ApplicationController
-  before_action :baria_user, {only: [:edit, :update, :destroy]}
+  before_action :baria_user, { only: [:edit, :update, :destroy] }
 
   def create
     @book = Book.find(params[:book_id])
@@ -31,5 +31,4 @@ class BookCommentsController < ApplicationController
   def book_comment_params
     params.require(:book_comment).permit(:comment)
   end
-
 end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :baria_user, {only: [:edit, :update]}
-  before_action :logged_in_user, {only: [:create, :destroy]}
+  before_action :baria_user, { only: [:edit, :update] }
+  before_action :logged_in_user, { only: [:create, :destroy] }
 
   def show
     @user = User.find(params[:id])
@@ -69,5 +69,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-
 end
